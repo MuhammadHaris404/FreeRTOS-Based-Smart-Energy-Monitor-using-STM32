@@ -59,16 +59,43 @@ void calculateEnergy()
   bill = energy_kWh * costPerUnit;
 }
 
+// ================= SERIAL OUTPUT =================
+void printToSerial()
+{
+  Serial.println("===== ENERGY MONITOR =====");
+
+  Serial.print("Voltage   : ");
+  Serial.print(vrms, 2);
+  Serial.println(" V");
+
+  Serial.print("Current   : ");
+  Serial.print(irms, 4);
+  Serial.println(" A");
+
+  Serial.print("Power     : ");
+  Serial.print(power, 2);
+  Serial.println(" W");
+
+  Serial.print("Energy    : ");
+  Serial.print(energy_kWh, 6);
+  Serial.println(" kWh");
+
+  Serial.print("Bill      : ₹");
+  Serial.println(bill, 2);
+
+  Serial.println("==========================\n");
+}
+
 // ================= CLOUD UPLOAD =================
 void uploadToCloud()
 {
   FirebaseJson json;
 
-  json.set("voltage_V", vrms);
-  json.set("current_A", irms);
-  json.set("power_W", power);
-  json.set("energy_kWh", energy_kWh);
-  json.set("bill", bill);
+  json.set("voltage_V_x100", (int)(vrms * 100));
+  json.set("current_mA", (int)(irms * 1000));
+  json.set("power_W_x10", (int)(power * 10));
+  json.set("energy_Wh", (int)(energy_kWh * 1000));
+  json.set("bill_x100", (int)(bill * 100));
 
   if (Firebase.setJSON(fbdo, "/energy_meter/live", json)) {
     Serial.println("Firebase upload OK");
@@ -82,18 +109,18 @@ void uploadToCloud()
 void setup()
 {
   Serial.begin(115200);
-  Serial1.begin(115200, SERIAL_8N1, 16, 17);
+  Serial1.begin(115200, SERIAL_8N1, 16, 17); // RX, TX
 
   // WiFi
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("Connecting to WiFi");
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
   Serial.println("\nWiFi connected");
 
-  // Firebase using DATABASE SECRET (v4.4.17 compatible)
+  // Firebase
   config.database_url = DATABASE_URL;
   config.signer.tokens.legacy_token = DATABASE_SECRET;
 
@@ -122,8 +149,10 @@ void loop()
     }
   }
 
+  // Every 5 seconds: upload + print
   if (millis() - lastCloudUpdate > 5000) {
     uploadToCloud();
+    printToSerial();
     lastCloudUpdate = millis();
   }
 }
