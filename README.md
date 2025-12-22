@@ -1,10 +1,11 @@
 # FreeRTOS-Based Smart Energy Monitor using STM32F746
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 ![Platform](https://img.shields.io/badge/Platform-Embedded-blue)
-![MCU](https://img.shields.io/badge/MCU-STM32F746|ESP32-pink)
+![MCU](https://img.shields.io/badge/MCU-STM32F746%20%7C%20ESP32-pink)
 ![RTOS](https://img.shields.io/badge/RTOS-FreeRTOS-orange)
 ![Cloud](https://img.shields.io/badge/Cloud-Firebase-yellow)
 ![Language](https://img.shields.io/badge/Language-C%2FC%2B%2B-red)
+![Lisence](https://img.shields.io/badge/MIT-lightgrey)
 
 ## Project Overview
 
