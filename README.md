@@ -11,6 +11,11 @@
 
 This project implements a **real-time smart energy monitoring and billing system** using the **STM32F746 microcontroller** and **ESP32**. The system measures voltage and current, computes RMS values, calculates power and energy consumption, and uploads live data to the **Firebase cloud** using WiFi. The design follows a **FreeRTOS-based multi-task architecture**, ensuring deterministic operation and clean separation of responsibilities.
 
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/68d03d54-7ac5-4df1-9eaf-bc7bd773f192" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/568e7c28-0849-44a2-9208-fbdad3808a4c" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/3277db49-f717-4398-97e5-645a5e0383a9" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/8210f5a9-0ab0-4f7a-850a-6395c28fd794" />
+
 ---
 
 ## Key Features
@@ -31,6 +36,10 @@ This project implements a **real-time smart energy monitoring and billing system
 - **STM32F746** → Signal processing + RMS calculation (FreeRTOS)  
 - **ESP32** → WiFi + Firebase cloud upload  
 - **UART** → Communication between STM32 and ESP32  
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/492c7a86-4f1d-4fd9-b169-7114faec7d40" />
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/df08c564-7eb0-4118-9e1c-0cfbfa30ba79" />
 
 ---
 
@@ -70,6 +79,8 @@ Energy (kWh) = \frac{P \times t}{1000}
 Bill = Energy \times CostPerUnit
 \]
 
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/02ad9740-2362-43a5-97c4-a579fc8e8cf5" />
+
 ---
 
 ## FreeRTOS Task Design
@@ -85,6 +96,8 @@ Bill = Energy \times CostPerUnit
 - Serial Debug Task  
 
 Mutexes are used to protect shared data across tasks.
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/a7c97ada-6c27-4410-9770-7f544bd89809" />
 
 ---
 
@@ -105,6 +118,10 @@ Mutexes are used to protect shared data across tasks.
 - Energy consumption analysis  
 
 ---
+
+## Demo Video 
+
+https://github.com/user-attachments/assets/38ebc3f2-3e4e-472e-ad77-98723180af24
 
 ## Team Members
 
