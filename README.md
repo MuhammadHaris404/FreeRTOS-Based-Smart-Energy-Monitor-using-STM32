@@ -5,7 +5,7 @@
 ![RTOS](https://img.shields.io/badge/RTOS-FreeRTOS-orange)
 ![Cloud](https://img.shields.io/badge/Cloud-Firebase-yellow)
 ![Language](https://img.shields.io/badge/Language-C%2FC%2B%2B-red)
-![Lisence](https://img.shields.io/badge/MIT-lightgrey)
+![Lisence](https://img.shields.io/badge/Lisence-MIT-lightgrey)
 
 ## Project Overview
 
