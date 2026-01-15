@@ -11,6 +11,7 @@
 
 This project implements a **real-time smart energy monitoring and billing system** using the **STM32F746 microcontroller** and **ESP32**. The system measures voltage and current, computes RMS values, calculates power and energy consumption, and uploads live data to the **Firebase cloud** using WiFi. The design follows a **FreeRTOS-based multi-task architecture**, ensuring deterministic operation and clean separation of responsibilities.
 
+
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/68d03d54-7ac5-4df1-9eaf-bc7bd773f192" />
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/568e7c28-0849-44a2-9208-fbdad3808a4c" />
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/3277db49-f717-4398-97e5-645a5e0383a9" />
